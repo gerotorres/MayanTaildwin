@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="input.css"> <!-- Archivo CSS propio -->
+    <link href="./public/output.css" rel="stylesheet"> <!-- Generado por Tailwind -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    
+<style>
+    ul.breadcrumb li+li::before {
+                content: "\276F";
+                padding-left: 8px;
+                padding-right: 4px;
+                color: inherit;
+            }
+
+            ul.breadcrumb li span {
+                opacity: 60%;
+            }
+
+            #sidebar {
+                -webkit-transition: all 300ms cubic-bezier(0, 0.77, 0.58, 1);
+                transition: all 300ms cubic-bezier(0, 0.77, 0.58, 1);
+            }
+
+            #sidebar.show {
+                transform: translateX(0);
+            }
+
+            #sidebar ul li a.active {
+                background: #1f2937;
+                background-color: #1f2937;
+            }
+</style>
+</head>
+
+<body>
+        <!-- Navbar start -->
+        <nav id="navbar" class="fixed top-0 z-40 flex w-full flex-row justify-end bg-gray-700 px-4 sm:justify-between">
+            <ul class="breadcrumb hidden flex-row items-center py-4 text-lg text-white sm:flex">
+                <li class="inline">
+                    <a href="#">Main</a>
+                </li>
+                <li class="inline">
+                    <span>Homepage</span>
+                </li>
+            </ul>
+            <button id="btnSidebarToggler" type="button" class="py-4 text-2xl text-white hover:text-gray-200">
+                <svg id="navClosed" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="h-8 w-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+                <svg id="navOpen" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="hidden h-8 w-8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+        </nav>
+        <!-- Navbar end -->
+
+        <!-- Sidebar start-->
+        <div id="containerSidebar" class="z-40">
+            <div class="navbar-menu relative z-40">
+                <nav id="sidebar"
+                    class="fixed left-0 bottom-0 flex w-3/4 -translate-x-full flex-col overflow-y-auto bg-gray-700 pt-6 pb-8 sm:max-w-xs lg:w-80">
+                    <!-- one category / navigation group -->
+                    <div class="px-4 pb-6">
+                        <h3 class="mb-2 text-xs font-medium uppercase text-gray-500">
+                            Main
+                        </h3>
+                        <ul class="mb-8 text-sm font-medium">
+                            <li>
+                                <a class="active flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                                    href="#homepage">
+                                    <span class="select-none">Homepage</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                                    href="#link1">
+                                    <span class="select-none">link1</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- navigation group end-->
+
+                    <!-- example copies start -->
+                    <div class="px-4 pb-6">
+                        <h3 class="mb-2 text-xs font-medium uppercase text-gray-500">
+                            Legal
+                        </h3>
+                        <ul class="mb-8 text-sm font-medium">
+                            <li>
+                                <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                                    href="#tc">
+                                    <span class="select-none">Terms and Condition</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                                    href="#privacy">
+                                    <span class="select-none">Privacy policy</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                                    href="#imprint">
+                                    <span class="select-none">Imprint</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="px-4 pb-6">
+                        <h3 class="mb-2 text-xs font-medium uppercase text-gray-500">
+                            Others
+                        </h3>
+                        <ul class="mb-8 text-sm font-medium">
+                            <li>
+                                <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                                    href="#ex1">
+                                    <span class="select-none">...</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center rounded py-3 pl-3 pr-4 text-gray-50 hover:bg-gray-600"
+                                    href="#ex2">
+                                    <span class="select-none">...</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="mx-auto lg:ml-80"></div>
+        </div>
+
+        <main>
+        </main>
+
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", () => {
+                const navbar = document.getElementById("navbar");
+                const sidebar = document.getElementById("sidebar");
+                const btnSidebarToggler = document.getElementById("btnSidebarToggler");
+                const navClosed = document.getElementById("navClosed");
+                const navOpen = document.getElementById("navOpen");
+
+                btnSidebarToggler.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    sidebar.classList.toggle("show");
+                    navClosed.classList.toggle("hidden");
+                    navOpen.classList.toggle("hidden");
+                });
+
+                sidebar.style.top = parseInt(navbar.clientHeight) - 1 + "px";
+            });
+        </script> 
+<div class="bg-black w-full h-full h-min-screen p-8">
+    <div class="container m-auto">
+        <div class="w-full z-0 relative md:min-h-[41rem]">
+            <div class="w-full h-full relative z-0 rounded-2xl">
+                <!-- Video principal con sonido -->
+                <video class="relative z-[1] inline w-full h-full object-center object-cover rounded-2xl" preload="metadata" autoplay loop playsinline aria-hidden="false" src="images/Sitio Web Link en Bio Tecnología y Gaming Sencillo Azul Oscuro (Presentación).mp4"></video>
+            </div>
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+<div
+  id="carouselExampleCaptions"
+  class="relative"
+  data-twe-carousel-init
+  data-twe-ride="carousel">
+  <!--Carousel indicators-->
+  <div
+    class="absolute bottom-0 left-0 right-0 z-[2] mx-[15%] mb-4 flex list-none justify-center p-0"
+    data-twe-carousel-indicators>
+    <button
+      type="button"
+      data-twe-target="#carouselExampleCaptions"
+      data-twe-slide-to="0"
+      data-twe-carousel-active
+      class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+      aria-current="true"
+      aria-label="Slide 1"></button>
+    <button
+      type="button"
+      data-twe-target="#carouselExampleCaptions"
+      data-twe-slide-to="1"
+      class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+      aria-label="Slide 2"></button>
+    <button
+      type="button"
+      data-twe-target="#carouselExampleCaptions"
+      data-twe-slide-to="2"
+      class="mx-[3px] box-content h-[3px] w-[30px] flex-initial cursor-pointer border-0 border-y-[10px] border-solid border-transparent bg-white bg-clip-padding p-0 -indent-[999px] opacity-50 transition-opacity duration-[600ms] ease-[cubic-bezier(0.25,0.1,0.25,1.0)] motion-reduce:transition-none"
+      aria-label="Slide 3"></button>
+  </div>
+
+  <!--Carousel items-->
+  <div
+    class="relative w-full overflow-hidden after:clear-both after:block after:content-['']">
+    <!--First item-->
+    <div
+      class="relative float-left -mr-[100%] w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+      data-twe-carousel-active
+      data-twe-carousel-item
+      style="backface-visibility: hidden">
+      <img
+        src="images/xanbel/Roof Garden.jpg"
+        class="block w-full"
+        alt="..." />
+      <div
+        class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
+        <h5 class="text-xl">First slide label</h5>
+        <p>
+          Some representative placeholder content for the first slide.
+        </p>
+      </div>
+    </div>
+    <!--Second item-->
+    <div
+      class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+      data-twe-carousel-item
+      style="backface-visibility: hidden">
+      <img
+        src="images/baay/BAAY EDIFICIO MONTAJE COMPLETO.jpg"
+        class="block w-full"
+        alt="..." />
+      <div
+        class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
+        <h5 class="text-xl">Second slide label</h5>
+        <p>
+          Some representative placeholder content for the second slide.
+        </p>
+      </div>
+    </div>
+    <!--Third item-->
+    <div
+      class="relative float-left -mr-[100%] hidden w-full transition-transform duration-[600ms] ease-in-out motion-reduce:transition-none"
+      data-twe-carousel-item
+      style="backface-visibility: hidden">
+      <img
+        src="images/brahma/FACHADA FRONTAL_A01 copia.jpg"
+        class="block w-full"
+        alt="..." />
+      <div
+        class="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
+        <h5 class="text-xl">Third slide label</h5>
+        <p>
+          Some representative placeholder content for the third slide.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!--Carousel controls - prev item-->
+  <button
+    class="absolute bottom-0 left-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+    type="button"
+    data-twe-target="#carouselExampleCaptions"
+    data-twe-slide="prev">
+    <span class="inline-block h-8 w-8">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="h-6 w-6">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 19.5L8.25 12l7.5-7.5" />
+      </svg>
+    </span>
+    <span
+      class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+      >Previous</span
+    >
+  </button>
+  <!--Carousel controls - next item-->
+  <button
+    class="absolute bottom-0 right-0 top-0 z-[1] flex w-[15%] items-center justify-center border-0 bg-none p-0 text-center text-white opacity-50 transition-opacity duration-150 ease-[cubic-bezier(0.25,0.1,0.25,1.0)] hover:text-white hover:no-underline hover:opacity-90 hover:outline-none focus:text-white focus:no-underline focus:opacity-90 focus:outline-none motion-reduce:transition-none"
+    type="button"
+    data-twe-target="#carouselExampleCaptions"
+    data-twe-slide="next">
+    <span class="inline-block h-8 w-8">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="h-6 w-6">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+      </svg>
+    </span>
+    <span
+      class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]"
+      >Next</span
+    >
+  </button>
+</div>
+<div class="sm:flex sm:flex-col sm:items-center space-y-6">
+    <!-- Tarjeta 1 -->
+    <div class="flex flex-col rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white w-full max-w-xl">
+      <a href="#!">
+        <img class="rounded-t-lg" src="https://tecdn.b-cdn.net/img/new/standard/city/041.webp" alt="Hollywood Sign on The Hill" />
+      </a>
+      <div class="p-6">
+        <h5 class="mb-2 text-xl font-medium leading-tight">Card title</h5>
+        <p class="mb-4 text-base">
+          This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+        </p>
+        <p class="mb-4 text-base text-surface/75 dark:text-neutral-300">
+          <small>Last updated 3 mins ago</small>
+        </p>
+      </div>
+    </div>
+  
+    <!-- Tarjeta 2 -->
+    <div class="flex flex-col rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white w-full max-w-xl">
+      <a href="#!">
+        <img class="rounded-t-lg" src="https://tecdn.b-cdn.net/img/new/standard/city/042.webp" alt="Palm Springs Road" />
+      </a>
+      <div class="p-6">
+        <h5 class="mb-2 text-xl font-medium leading-tight">Card title</h5>
+        <p class="mb-4 text-base">
+          This card has supporting text below as a natural lead-in to additional content.
+        </p>
+        <p class="mb-4 text-base text-surface/75 dark:text-neutral-300">
+          <small>Last updated 3 mins ago</small>
+        </p>
+      </div>
+    </div>
+  
+    <!-- Tarjeta 3 -->
+    <div class="flex flex-col rounded-lg bg-white text-surface shadow-secondary-1 dark:bg-surface-dark dark:text-white w-full max-w-xl">
+      <a href="#!">
+        <img class="rounded-t-lg" src="https://tecdn.b-cdn.net/img/new/standard/city/043.webp" alt="Los Angeles Skyscrapers" />
+      </a>
+      <div class="p-6">
+        <h5 class="mb-2 text-xl font-medium leading-tight">Card title</h5>
+        <p class="mb-4 text-base">
+          This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
+        </p>
+        <p class="mb-4 text-base text-surface/75 dark:text-neutral-300">
+          <small>Last updated 3 mins ago</small>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+              
+
+            
+    </body>
+</html>
